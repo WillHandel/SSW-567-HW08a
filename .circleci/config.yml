@@ -19,7 +19,8 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - run:
-          name: "pip install pytest"
+          name: "test"
+          command: "install pytest"
           command: "pytest --junitxml=test-results/junit.xml test_triangle_classification.py"
 
 # Orchestrate jobs using workflows
