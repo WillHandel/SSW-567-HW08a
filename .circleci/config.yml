@@ -19,10 +19,13 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - run:
-          name: "test"
+          name: "install pytest"
           command: "install pytest"
+      - run:
+          name: "run tests"
           command: "pytest --junitxml=test-results/junit.xml test_triangle_classification.py"
-
+      -store_test_results:
+        path: test-results
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
